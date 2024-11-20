@@ -5,8 +5,8 @@ API RESTful para consultar informações sobre os produtores com o maior e menor
 ## **Topicos**
 1. Tecnologias e Libs.
 2. Instalação
-3. **Banco de Dados**: Banco de dados em memória (SQLite).
-4. **Testes**: Inclui testes de integração para validação dos dados.
+3. Estrutura do Projeto.
+4. **Testes de Integração**: Inclui testes de integração para validação dos dados.
 
 ---
 
@@ -23,7 +23,7 @@ API RESTful para consultar informações sobre os produtores com o maior e menor
 ## **2. Instalação**
 
 ### **Pré-requisitos**
-- Node.js versão 18+.
+- Node.js versão 22+.
 - npm (gerenciador de pacotes).
 
 ### **Passo a Passo**
@@ -44,27 +44,34 @@ API RESTful para consultar informações sobre os produtores com o maior e menor
 4. A aplicação estará disponível em:
 - http://localhost:3000/producers/intervals
 
+---
 
-  ## Estrutura do Projeto
-  ```ruby
-  src/
-  ├── database/
-  │   ├── entities/
-  │   │   └── movies.entity.ts        # Entidade de filmes
-  │   ├── movielist.csv               # Arquivo CSV com dados dos filmes
-  │   └── typeorm.config.ts           # Configuração do TypeORM
-  ├── modules/
-  │   ├── csv/
-  │   │   └── csv.service.ts          # Serviço para leitura e importação do CSV
-  │   └── movies/
-  │       ├── movies.controller.ts   # Controlador REST para os filmes
-  │       ├── movies.module.ts       # Módulo de filmes
-  │       └── movies.service.ts      # Serviço principal para lógica de negócio
-  ├── app.module.ts                   # Módulo principal da aplicação
-  ├── main.ts                         # Arquivo de inicialização da aplicação
-  test/
-  ├── app.e2e-spec.ts                 # Testes de integração (end-to-end)
-  └── jest-e2e.json                   # Configuração do Jest para testes e2e
+## **2. Estrutura do Projeto**
+```ruby
+src/
+├── database/
+│   ├── entities/
+│   │   └── movies.entity.ts        # Entidade de filmes
+│   ├── movielist.csv               # Arquivo CSV com dados dos filmes
+│   └── typeorm.config.ts           # Configuração do TypeORM
+├── modules/
+│   ├── csv/
+│   │   └── csv.service.ts          # Serviço para leitura e importação do CSV
+│   └── movies/
+│       ├── movies.controller.ts   # Controlador REST para os filmes
+│       ├── movies.module.ts       # Módulo de filmes
+│       └── movies.service.ts      # Serviço principal para lógica de negócio
+├── app.module.ts                   # Módulo principal da aplicação
+├── main.ts                         # Arquivo de inicialização da aplicação
+test/
+├── app.e2e-spec.ts                 # Testes de integração (end-to-end)
+└── jest-e2e.json                   # Configuração do Jest para testes e2e
+```
 
+---
 
+## **4. Testes de Integração**
+1. Para rodar os testes, execute:
+   ```bash
+   npm run test
 
