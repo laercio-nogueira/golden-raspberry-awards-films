@@ -13,6 +13,33 @@ export class MoviesService {
   async getIntervals(): Promise<any> {
     const movies = await this.movieRepository.find({ where: { winner: true } });
 
-    return movies;
+    const producerJoinByYear = {};
+    movies.forEach(({ year, producers }) => {
+      producers.split(', ').forEach((producer: string) => {
+        if (!producerJoinByYear[producer]) producerJoinByYear[producer] = [];
+        producerJoinByYear[producer].push(year);
+      });
+    });
+
+    const intervals = [];
+    for (const producer in producerJoinByYear) {
+      const yearsInOrder = producerJoinByYear[producer].sort((a, b) => a - b);
+      for (let count = 1; count < yearsInOrder.length; count++) {
+        intervals.push({
+          producer,
+          interval: yearsInOrder[count] - yearsInOrder[count - 1],
+          previousWin: yearsInOrder[count - 1],
+          followingWin: yearsInOrder[count],
+        });
+      }
+    }
+
+    const minInterval = Math.min(...intervals.map(({ interval }) => interval));
+    const maxInterval = Math.max(...intervals.map(({ interval }) => interval));
+
+    return {
+      min: intervals.filter((i) => i.interval === minInterval),
+      max: intervals.filter((i) => i.interval === maxInterval),
+    };
   }
 }
