@@ -43,7 +43,7 @@ API RESTful para consultar informações sobre os produtores com o maior e menor
    npm run start
 
 4. A aplicação estará disponível em:
-- http://localhost:3000/producers/intervals
+- http://localhost:3000/movies/intervals
 
 ---
 
