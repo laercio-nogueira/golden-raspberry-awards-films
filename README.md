@@ -47,7 +47,7 @@ API RESTful para consultar informações sobre os produtores com o maior e menor
 
 ---
 
-## **2. Estrutura do Projeto**
+## **3. Estrutura do Projeto**
 ```ruby
 src/
 ├── database/
