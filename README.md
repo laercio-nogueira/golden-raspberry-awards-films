@@ -31,7 +31,7 @@ API RESTful para consultar informações sobre os produtores com o maior e menor
 1. **Clone o repositório:**
    ```bash
    git clone https://github.com/laercio-nogueira/golden-raspberry-awards-films.git
-   cd golden-raspberry-awards
+   cd ./golden-raspberry-awards-films
    ```
 
 2. Instale as dependencias
