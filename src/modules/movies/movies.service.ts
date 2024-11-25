@@ -15,12 +15,13 @@ export class MoviesService {
 
     const producerJoinByYear = {};
     movies.forEach(({ year, producers }) => {
-      producers.split(', ').forEach((producer: string) => {
-        if (!producerJoinByYear[producer]) producerJoinByYear[producer] = [];
-        producerJoinByYear[producer].push(year);
+      producers.split(/,|and/).forEach((producer: string) => {
+        if (!producerJoinByYear[producer.trim()]) producerJoinByYear[producer.trim()] = [];
+        producerJoinByYear[producer.trim()].push(year);
       });
     });
 
+    console.log(producerJoinByYear);
     const intervals = [];
     for (const producer in producerJoinByYear) {
       const yearsInOrder = producerJoinByYear[producer].sort((a, b) => a - b);
