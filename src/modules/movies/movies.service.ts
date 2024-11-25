@@ -21,7 +21,6 @@ export class MoviesService {
       });
     });
 
-    console.log(producerJoinByYear);
     const intervals = [];
     for (const producer in producerJoinByYear) {
       const yearsInOrder = producerJoinByYear[producer].sort((a, b) => a - b);
